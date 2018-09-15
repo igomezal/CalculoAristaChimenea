@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CalculoAristaChimenea</string>
+    <string name="detail">detail</string>
+    <string name="size_side">Un lado de la figura</string>
+    <string name="calc_side_size">Calcular valor de la arista de la chimenea</string>
+    <string name="size_another_side">Otro lado de la figura</string>
+    <string name="size_height">Altura esperada</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
