@@ -1,17 +1,11 @@
 package com.igomezal.calculoaristachimenea
 
-import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.support.design.bottomappbar.BottomAppBar
-import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.ViewCompat
-import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import java.security.AccessControlContext
 
 enum class States { HOME, ADD_CHIMENEA }
 
