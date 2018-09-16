@@ -25,16 +25,19 @@ class ListViewFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val activity: MainActivity = this.activity as MainActivity
+        val submitActionButton = activity.findViewById<FloatingActionButton>(R.id.addCalculatedSize)
         val view = inflater.inflate(R.layout.fragment_list_view, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.chimeneaList)
 
-        recyclerView.adapter = ChimeneasViewAdapter(AppDatabase.getInstance(activity.applicationContext)?.chimeneaDao()!!.getAllChimeneas())
+        activity.currentState = States.HOME
+        recyclerView.adapter = ChimeneasViewAdapter(AppDatabase.getInstance(activity.applicationContext).chimeneaDao().getAllChimeneas())
         recyclerView.layoutManager = LinearLayoutManager(this.context)
 
-        activity.findViewById<FloatingActionButton>(R.id.addCalculatedSize)?.setOnClickListener{
+        submitActionButton?.contentDescription = resources.getString(R.string.add_new_chimenea_navigation)
+        submitActionButton?.setOnClickListener{
 
             activity.findViewById<BottomAppBar>(R.id.bottomAppBar)?.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-            activity.findViewById<FloatingActionButton>(R.id.addCalculatedSize)?.setImageResource(R.drawable.ic_done_36)
+            submitActionButton.setImageResource(R.drawable.ic_done_36)
             activity.supportFragmentManager
                     ?.beginTransaction()
                     ?.replace(R.id.homeContainer, AddCalculatedSizeFragment.newInstance())
@@ -53,7 +56,7 @@ class ChimeneasViewAdapter(private val chimeneas: List<Chimenea>) : RecyclerView
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val chimenea: Chimenea = chimeneas.get(position)
+        val chimenea: Chimenea = chimeneas[position]
 
         viewHolder.chimeneaTitle.setText("""Lado a: ${chimenea.x} Lado b: ${chimenea.y} Altura: ${chimenea.height}""")
         viewHolder.chimeneaResult.setText("""Resultado: ${chimenea.edge}""")
@@ -69,12 +72,7 @@ class ChimeneasViewAdapter(private val chimeneas: List<Chimenea>) : RecyclerView
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var chimeneaTitle: TextView
-        var chimeneaResult: TextView
-
-        init {
-            this.chimeneaTitle = itemView.findViewById(R.id.chimenea_id)
-            this.chimeneaResult = itemView.findViewById(R.id.chimenea_result)
-        }
+        var chimeneaTitle: TextView = itemView.findViewById(R.id.chimenea_id)
+        var chimeneaResult: TextView = itemView.findViewById(R.id.chimenea_result)
     }
 }

@@ -8,7 +8,7 @@ interface ChimeneaDAO {
     fun getAllChimeneas(): List<Chimenea>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertChimenea(chimenea: Chimenea)
+    fun insertChimenea(chimenea: Chimenea): Long
 
     @Update
     fun updateChimenea(chimena: Chimenea)

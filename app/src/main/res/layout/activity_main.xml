@@ -5,25 +5,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/activityMainId"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/homeContainer"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
-    <android.support.design.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/colorPrimary"/>
+        <FrameLayout
+            android:id="@+id/homeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/addCalculatedSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tint="@android:color/white"
-        android:src="@drawable/ic_add_36"
-        app:layout_anchor="@id/bottomAppBar" />
+        <android.support.design.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hideOnScroll="true"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/colorPrimary"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addCalculatedSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@android:color/white"
+            android:src="@drawable/ic_add_36"
+            app:layout_anchor="@id/bottomAppBar"
+            android:contentDescription="@string/add_new_chimenea_navigation"/>
+    </android.support.design.widget.CoordinatorLayout>
+
 </android.support.design.widget.CoordinatorLayout>
+

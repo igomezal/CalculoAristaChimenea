@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "chimeneas")
-data class Chimenea(@PrimaryKey(autoGenerate = true) val id: Long, val x: Double, val y: Double, val height: Double) {
+data class Chimenea(@PrimaryKey(autoGenerate = true) var id: Long, val x: Double, val y: Double, val height: Double) {
     var edge: Double
 
     init {
