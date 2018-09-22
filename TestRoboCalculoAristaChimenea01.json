@@ -4,7 +4,7 @@
     "timestamp": 1537110250146,
     "replacementText": "",
     "actionCode": -1,
-    "delayTime": 0,
+    "delayTime": 120000,
     "canScrollTo": false,
     "elementDescriptors": [
       {

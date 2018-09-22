@@ -1,4 +1,4 @@
-package com.igomezal.calculoaristachimenea
+package com.igomezal.calculoaristachimenea.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -11,6 +11,11 @@ import android.support.v4.view.ViewCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.igomezal.calculoaristachimenea.R
+import com.igomezal.calculoaristachimenea.repository.AppDatabase
+import com.igomezal.calculoaristachimenea.repository.entities.Chimenea
+import com.igomezal.calculoaristachimenea.ui.MainActivity
+import com.igomezal.calculoaristachimenea.ui.States
 import kotlinx.android.synthetic.main.add_calculated_size.*
 import java.lang.Double.parseDouble
 

@@ -1,4 +1,4 @@
-package com.igomezal.calculoaristachimenea
+package com.igomezal.calculoaristachimenea.repository.entities
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey

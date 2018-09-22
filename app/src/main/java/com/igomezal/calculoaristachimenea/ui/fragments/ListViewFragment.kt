@@ -1,4 +1,4 @@
-package com.igomezal.calculoaristachimenea
+package com.igomezal.calculoaristachimenea.ui.fragments
 
 
 import android.content.Context
@@ -12,6 +12,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.igomezal.calculoaristachimenea.R
+import com.igomezal.calculoaristachimenea.repository.AppDatabase
+import com.igomezal.calculoaristachimenea.repository.entities.Chimenea
+import com.igomezal.calculoaristachimenea.ui.MainActivity
+import com.igomezal.calculoaristachimenea.ui.States
 
 class ListViewFragment : Fragment() {
 

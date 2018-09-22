@@ -1,10 +1,12 @@
-package com.igomezal.calculoaristachimenea
+package com.igomezal.calculoaristachimenea.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.support.design.bottomappbar.BottomAppBar
 import android.widget.Toast
+import com.igomezal.calculoaristachimenea.R
+import com.igomezal.calculoaristachimenea.ui.fragments.ListViewFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 enum class States { HOME, ADD_CHIMENEA }
