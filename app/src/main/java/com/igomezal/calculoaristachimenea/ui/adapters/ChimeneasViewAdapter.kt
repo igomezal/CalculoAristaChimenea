@@ -17,8 +17,8 @@ class ChimeneasViewAdapter(private val chimeneas: List<Chimenea>) : RecyclerView
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val chimenea: Chimenea = chimeneas[position]
 
-        viewHolder.chimeneaTitle.setText("""Lado a: ${chimenea.x} Lado b: ${chimenea.y} Altura: ${chimenea.height}""")
-        viewHolder.chimeneaResult.setText("""Resultado: ${chimenea.edge}""")
+        viewHolder.chimeneaTitle.text = """Lado a: ${chimenea.x} Lado b: ${chimenea.y} Altura: ${chimenea.height}"""
+        viewHolder.chimeneaResult.text = """Resultado: ${chimenea.edge}"""
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
