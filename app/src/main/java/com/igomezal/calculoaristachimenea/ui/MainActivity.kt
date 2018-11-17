@@ -1,9 +1,9 @@
 package com.igomezal.calculoaristachimenea.ui
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.support.design.bottomappbar.BottomAppBar
+import com.google.android.material.bottomappbar.BottomAppBar
 import android.widget.Toast
 import com.igomezal.calculoaristachimenea.R
 import com.igomezal.calculoaristachimenea.ui.fragments.ListViewFragment

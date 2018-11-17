@@ -1,14 +1,14 @@
 package com.igomezal.calculoaristachimenea.ui.fragments
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import android.content.Context
 import android.os.Bundle
-import android.support.design.bottomappbar.BottomAppBar
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.ViewCompat
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,8 +30,11 @@ class AddCalculatedSizeFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val mChimeneaViewModel = ViewModelProviders.of(this).get(ChimeneaViewModel::class.java)
         val activity: MainActivity = this.activity as MainActivity
+        val mChimeneaViewModel = ViewModelProvider(this, ViewModelProvider
+                .AndroidViewModelFactory
+                .getInstance(activity.application))
+                .get(ChimeneaViewModel::class.java)
         val submitActionButton = activity.findViewById<FloatingActionButton>(R.id.addCalculatedSize)
 
         activity.currentState = States.ADD_CHIMENEA
