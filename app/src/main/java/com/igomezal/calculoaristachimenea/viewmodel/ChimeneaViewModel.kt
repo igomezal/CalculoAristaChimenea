@@ -1,7 +1,7 @@
 package com.igomezal.calculoaristachimenea.viewmodel
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
+import androidx.lifecycle.AndroidViewModel
 import com.igomezal.calculoaristachimenea.repository.ChimeneasRepository
 import com.igomezal.calculoaristachimenea.repository.entities.Chimenea
 

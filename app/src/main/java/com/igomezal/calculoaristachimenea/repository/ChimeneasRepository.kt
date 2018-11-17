@@ -1,7 +1,7 @@
 package com.igomezal.calculoaristachimenea.repository
 
 import android.app.Application
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import com.igomezal.calculoaristachimenea.repository.entities.Chimenea
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.doAsyncResult

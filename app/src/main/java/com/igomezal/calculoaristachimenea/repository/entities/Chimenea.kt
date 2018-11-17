@@ -1,7 +1,7 @@
 package com.igomezal.calculoaristachimenea.repository.entities
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "chimeneas")
 data class Chimenea(@PrimaryKey(autoGenerate = true) var id: Long, val x: Double, val y: Double, val height: Double) {
