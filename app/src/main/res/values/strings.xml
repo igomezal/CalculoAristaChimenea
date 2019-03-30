@@ -10,4 +10,7 @@
     <string name="add_new_chimenea_navigation">Navegar a la pantalla para crear una nueva chimenea</string>
     <string name="exit_application">Vuelve a pulsar el botón atrás para salir de la aplicación</string>
     <string name="undo">Deshacer</string>
+    <string name="menu_title">Menú</string>
+    <string name="provacy_policy_menu">Política de privacidad</string>
+    <string name="home_menu">Mis cálculos</string>
 </resources>

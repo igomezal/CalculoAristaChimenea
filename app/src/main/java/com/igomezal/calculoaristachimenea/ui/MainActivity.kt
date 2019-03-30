@@ -3,9 +3,11 @@ package com.igomezal.calculoaristachimenea.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.MenuItem
 import com.google.android.material.bottomappbar.BottomAppBar
 import android.widget.Toast
 import com.igomezal.calculoaristachimenea.R
+import com.igomezal.calculoaristachimenea.ui.fragments.BottomSheetMenu
 import com.igomezal.calculoaristachimenea.ui.fragments.ListViewFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,11 +20,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(bottomAppBar)
 
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.homeContainer, ListViewFragment.newInstance())
                 .commit()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId) {
+            android.R.id.home -> {
+                val bottomNavDrawerFragment = BottomSheetMenu()
+                bottomNavDrawerFragment.show(supportFragmentManager, bottomNavDrawerFragment.tag)
+            }
+        }
+        return true
     }
 
     override fun onBackPressed() {

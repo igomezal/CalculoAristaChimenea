@@ -15,15 +15,18 @@
         <FrameLayout
             android:id="@+id/homeContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="?attr/actionBarSize"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hideOnScroll="true"
             android:layout_gravity="bottom"
-            android:backgroundTint="@color/colorPrimary"/>
+            android:backgroundTint="@color/colorPrimary"
+            app:hideOnScroll="true"
+            app:navigationIcon="@drawable/baseline_menu_white_18"
+            app:navigationContentDescription="@string/menu_title"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addCalculatedSize"

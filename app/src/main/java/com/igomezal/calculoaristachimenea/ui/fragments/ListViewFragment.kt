@@ -42,15 +42,22 @@ class ListViewFragment : Fragment() {
         })
         recyclerView.layoutManager = LinearLayoutManager(this.context)
 
-        submitActionButton?.contentDescription = resources.getString(R.string.add_new_chimenea_navigation)
-        submitActionButton?.setOnClickListener{
+        activity.findViewById<BottomAppBar>(R.id.bottomAppBar)?.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
 
-            activity.findViewById<BottomAppBar>(R.id.bottomAppBar)?.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-            submitActionButton.setImageResource(R.drawable.ic_done_36)
-            activity.supportFragmentManager
-                    ?.beginTransaction()
-                    ?.replace(R.id.homeContainer, AddCalculatedSizeFragment.newInstance())
-                    ?.commit()
+        with(submitActionButton) {
+            setImageResource(R.drawable.ic_add_36)
+            hide()
+            show()
+            contentDescription = resources.getString(R.string.add_new_chimenea_navigation)
+            setOnClickListener{
+
+                activity.findViewById<BottomAppBar>(R.id.bottomAppBar)?.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
+                submitActionButton.setImageResource(R.drawable.ic_done_36)
+                activity.supportFragmentManager
+                        ?.beginTransaction()
+                        ?.replace(R.id.homeContainer, AddCalculatedSizeFragment.newInstance())
+                        ?.commit()
+            }
         }
 
         return view
