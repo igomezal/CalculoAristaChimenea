@@ -13,15 +13,16 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.igomezal.calculoaristachimenea.R
+import com.igomezal.calculoaristachimenea.databinding.AddCalculatedSizeBinding
 import com.igomezal.calculoaristachimenea.repository.entities.Chimenea
 import com.igomezal.calculoaristachimenea.ui.MainActivity
 import com.igomezal.calculoaristachimenea.ui.States
 import com.igomezal.calculoaristachimenea.viewmodel.ChimeneaViewModel
-import kotlinx.android.synthetic.main.add_calculated_size.*
-import org.jetbrains.anko.find
 import java.lang.Double.parseDouble
 
 class AddCalculatedSizeFragment : Fragment() {
+    private var _binding: AddCalculatedSizeBinding? = null
+    private val binding get() = _binding!!
 
     companion object {
         fun newInstance(): AddCalculatedSizeFragment {
@@ -37,6 +38,9 @@ class AddCalculatedSizeFragment : Fragment() {
                 .get(ChimeneaViewModel::class.java)
         val submitActionButton = activity.findViewById<FloatingActionButton>(R.id.addCalculatedSize)
 
+        _binding = AddCalculatedSizeBinding.inflate(inflater, container, false)
+        val view = binding.root
+
         activity.currentState = States.ADD_CHIMENEA
         activity.findViewById<BottomAppBar>(R.id.bottomAppBar)?.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
 
@@ -46,9 +50,9 @@ class AddCalculatedSizeFragment : Fragment() {
             show()
             contentDescription = resources.getString(R.string.button_submit_text)
             setOnClickListener { submitButton ->
-                val xText = etSideX.text
-                val yText = etSideY.text
-                val heightText = etHeight.text
+                val xText = binding.etSideX.text
+                val yText = binding.etSideY.text
+                val heightText = binding.etHeight.text
 
                 if (xText!!.isNotEmpty() && yText!!.isNotEmpty() && heightText!!.isNotEmpty()) {
                     val x = parseDouble(xText.toString())
@@ -58,7 +62,7 @@ class AddCalculatedSizeFragment : Fragment() {
                     val snack = Snackbar.make(activity.findViewById(R.id.activityMainId),
                             """Guardada nueva chimenea con arista de valor: ${"%.2f".format(chimeneaToBeSaved.edge)}""",
                             Snackbar.LENGTH_LONG)
-                    val removedLastChimeneaSnack = Snackbar.make(activity.find(R.id.activityMainId),
+                    val removedLastChimeneaSnack = Snackbar.make(binding.root,
                             "Se ha eliminado la última chimenea agregada",
                             Snackbar.LENGTH_LONG)
 
@@ -70,19 +74,19 @@ class AddCalculatedSizeFragment : Fragment() {
                         removedLastChimeneaSnack.show()
                     }
 
-                    removedLastChimeneaSnack.config(context!!)
-                    snack.config(context!!)
+                    removedLastChimeneaSnack.config(requireContext())
+                    snack.config(requireContext())
                     snack.show()
                 }
 
                 activity.supportFragmentManager
-                        ?.beginTransaction()
-                        ?.replace(R.id.homeContainer, ListViewFragment.newInstance())
-                        ?.commit()
+                        .beginTransaction()
+                        .replace(R.id.homeContainer, ListViewFragment.newInstance())
+                        .commit()
             }
         }
 
-        return inflater.inflate(R.layout.add_calculated_size, container, false)
+        return view
     }
 
 

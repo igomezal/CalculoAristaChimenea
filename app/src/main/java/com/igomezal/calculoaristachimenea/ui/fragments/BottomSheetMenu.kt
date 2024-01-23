@@ -7,17 +7,23 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.igomezal.calculoaristachimenea.R
+import com.igomezal.calculoaristachimenea.databinding.FragmentBottomsheetMenuBinding
 import com.igomezal.calculoaristachimenea.ui.MainActivity
-import kotlinx.android.synthetic.main.fragment_bottomsheet_menu.*
 
 class BottomSheetMenu: BottomSheetDialogFragment() {
+    private var _binding: FragmentBottomsheetMenuBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_bottomsheet_menu, container, false)
+        _binding = FragmentBottomsheetMenuBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        navigation_view.setNavigationItemSelectedListener {
+        binding.navigationView.setNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.home_view -> {
                     fragmentManager?.beginTransaction()?.replace(R.id.homeContainer, ListViewFragment.newInstance())?.commit()
@@ -35,7 +41,6 @@ class BottomSheetMenu: BottomSheetDialogFragment() {
                 }
             }
             true
-
         }
     }
 }

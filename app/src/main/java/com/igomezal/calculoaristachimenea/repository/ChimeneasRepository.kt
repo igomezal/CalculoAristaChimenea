@@ -3,6 +3,10 @@ package com.igomezal.calculoaristachimenea.repository
 import android.app.Application
 import androidx.lifecycle.LiveData
 import com.igomezal.calculoaristachimenea.repository.entities.Chimenea
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.withContext
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.doAsyncResult
 
@@ -15,14 +19,16 @@ class ChimeneasRepository(application: Application) {
         return allChimeneas
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun insertChimenea(chimenea: Chimenea): Long {
-        return doAsyncResult {
+        return GlobalScope.doAsyncResult {
             chimeneaDAO.insertChimenea(chimenea)
         }.get()
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun deleteChimenea(chimenea: Chimenea) {
-        doAsync {
+        GlobalScope.doAsync {
             chimeneaDAO.deleteChimenea(chimenea)
         }
     }

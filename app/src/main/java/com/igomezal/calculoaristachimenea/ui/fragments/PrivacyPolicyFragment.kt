@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.igomezal.calculoaristachimenea.R
-import kotlinx.android.synthetic.main.privacy_policy.*
+import com.igomezal.calculoaristachimenea.databinding.PrivacyPolicyBinding
 
 class PrivacyPolicyFragment : Fragment() {
+    private var _binding: PrivacyPolicyBinding? = null
+    private val binding get() = _binding!!
+
     companion object {
         fun newInstance(): PrivacyPolicyFragment {
             return PrivacyPolicyFragment()
@@ -16,11 +18,13 @@ class PrivacyPolicyFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.privacy_policy, container, false)
+        _binding = PrivacyPolicyBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        markdownViewTest.loadMarkdownFile("file:///android_asset/privacy_policy.md")
+        binding.markdownViewTest.loadMarkdownFile("file:///android_asset/privacy_policy.md")
     }
 }
